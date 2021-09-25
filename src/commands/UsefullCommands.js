@@ -1,6 +1,6 @@
 export const usefullCommands = [
   {
-    command: [`${'Nova' || 'nova'} guia`],
+    command: ['Nova guia', 'Nova aba'],
     callback: () => {
       window.open('https://google.com', '_blank');
     },

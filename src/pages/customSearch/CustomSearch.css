@@ -2,40 +2,40 @@
   overflow: auto;
   height: 100vh;
   width: 100%;
-  padding: 0 30px;
+  padding: 15px 30px;
 }
 
-.show {
+.CustomSearch .search {
   margin: 20px 0;
   max-width: 700px;
 }
 
-.show__info {
+.CustomSearch .search__info {
   color: rgb(120, 120, 120);
   font-weight: normal;
   font-size: 14px;
 }
 
-.show__details {
+.CustomSearch .search__details {
   margin-top: 15px;
 }
 
-.show__title {
+.CustomSearch .search__title {
   margin-bottom: 5px;
 }
 
-.show__title a {
+.CustomSearch .search__title a {
   font-size: 20px;
   color: #1a0dab;
   text-decoration: none;
 }
 
-.show__description {
+.CustomSearch .search__description {
   color: #3c4043;
   font-size: 14px;
   margin-bottom: 15px;
 }
 
-.show__description__text {
+.CustomSearch .search__description__text {
   margin: 0 !important;
 }

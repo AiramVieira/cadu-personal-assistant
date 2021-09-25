@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { basicCommands } from '../../commands/BasicCommands';
 import { usefullCommands } from '../../commands/UsefullCommands';
 import { routingCommands } from '../../commands/RoutingCommands';
-import './Assistant.css'
+import './Assistant.css';
+import FunctionList from '../../components/function-list/FunctionList';
 
 function Assistant() {
   SpeechRecognition.startListening({ language: 'pt-pt', continuous: true });
@@ -22,6 +23,8 @@ function Assistant() {
       <p>Fala com o pai, que eu te respondo</p>
 
       <p id='transcript'>Transcript: {transcript}</p>
+
+      <FunctionList commands={commands}/>
     </div>
   );
 }

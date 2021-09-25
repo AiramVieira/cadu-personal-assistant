@@ -29,3 +29,7 @@
 .Menu li a:hover {
   background-color: #00000030;
 }
+
+.Menu .active {
+  background-color: #00000030;
+}

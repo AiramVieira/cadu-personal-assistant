@@ -1,6 +1,6 @@
 export const basicCommands = [
   {
-    command: ['Hora atual', 'horário atual'],
+    command: ['Hora atual', 'Horário atual'],
     callback: () => {
       var tag = document.createElement('h1');
       const date = new Date();

@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { searchCommands } from '../../commands/SearchCommands';
 import { routingCommands } from '../../commands/RoutingCommands';
 import { key, cx } from '../../environments';
 import axios from 'axios';
 import './CustomSearch.css';
+import FunctionList from '../../components/function-list/FunctionList';
 
 function CustomSearch(props) {
   SpeechRecognition.startListening({ language: 'pt-pt', continuous: true });
@@ -51,25 +51,24 @@ function CustomSearch(props) {
 
   return (
     <div className='CustomSearch'>
-      <h1>Cadu pesquisador, fala que o pai busca!</h1>
+      <h1 className='mb-3'>Cadu pesquisador, fala que o pai busca!</h1>
 
-      {/* <p id='transcript'>Transcript: {transcript}</p> */}
+      <FunctionList commands={commands} />
 
       {loading ? <h1>Buscando {term}...</h1> : ''}
 
-      <div className='show'>
-        <div className='show__info'>{info ? `Total de resultados: ${info.totalResults || 0}` : ''}</div>
+      <div className='search'>
+        <div className='search__info'>{info ? `Total de resultados: ${info.totalResults || 0}` : ''}</div>
       </div>
       {results.length > 0
         ? results.map((result) => {
-            console.log(result);
             return (
-              <div className='show__details'>
-                <div className='show__title'>
+              <div className='search__details'>
+                <div className='search__title'>
                   <a href={result.link}>{result.title}</a>
                 </div>
-                <div className='show__description'>
-                  <p className='show__description__text'>{result.snippet}</p>
+                <div className='search__description'>
+                  <p className='search__description__text'>{result.snippet}</p>
                 </div>
               </div>
             );

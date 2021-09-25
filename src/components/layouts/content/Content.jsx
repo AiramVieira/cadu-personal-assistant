@@ -9,7 +9,7 @@ const Content = (props) => (
   <main className='Content'>
     <Switch>
       <Route exact path='/'>
-        <Redirect to='/busca' />
+        <Redirect to='/inicio' />
       </Route>
       <Route path='/inicio'>
         <Assistant />
