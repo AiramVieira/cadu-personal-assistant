@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { routingCommands } from '../../commands/RoutingCommands';
 import { key, cx } from '../../environments';
@@ -20,14 +20,14 @@ function CustomSearch(props) {
   // commands.push(...searchCommands);
   commands.push(...routingCommands);
 
-  const [term, setTerm] = React.useState('');
-  const [info, setInfo] = React.useState([]);
-  const [results, setResults] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+  const [term, setTerm] = useState('');
+  const [info, setInfo] = useState([]);
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useSpeechRecognition({ commands });
 
-  React.useEffect(() => {
+  useEffect(() => {
     (async () => {
       setLoading(true);
       if (term) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { timeCommands } from '../../commands/TimeCommands';
 import { basicCommands } from '../../commands/BasicCommands';
 import { usefullCommands } from '../../commands/UsefullCommands';
 import { routingCommands } from '../../commands/RoutingCommands';
@@ -10,6 +11,7 @@ function Assistant() {
   SpeechRecognition.startListening({ language: 'pt-pt', continuous: true });
 
   const commands = [];
+  commands.push(...timeCommands);
   commands.push(...basicCommands);
   commands.push(...routingCommands);
   commands.push(...usefullCommands);
