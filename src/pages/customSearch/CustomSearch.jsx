@@ -1,53 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { transcriptCommands } from '../../commands/TranscriptCommands';
-import { routingCommands } from '../../commands/RoutingCommands';
-import { key, cx } from '../../environments';
-import axios from 'axios';
+import { searchCommands } from '../../commands/SearchCommands';
 import './CustomSearch.css';
 import FunctionList from '../../components/function-list/FunctionList';
+import { EventEmitter } from '../../utils/EventEmitter';
+import allCommands from '../../commands/AllCommands';
 
 function CustomSearch() {
   SpeechRecognition.startListening({ language: 'pt-pt', continuous: true });
 
-  const commands = [
-    {
-      command: ['Pesquisar *', 'Buscar *'],
-      callback: (term) => {
-        setTerm(term);
-      },
-    },
-  ];
-  // commands.push(...searchCommands);
-  commands.push(...routingCommands);
-  commands.push(...transcriptCommands);
+  const commands = [...allCommands];
 
-  const [term, setTerm] = useState('');
   const [info, setInfo] = useState([]);
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const { transcript } = useSpeechRecognition({ commands });
 
-  useEffect(async () => {
-    setLoading(true);
-    if (term) {
-      try {
-        const url = `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=${term}`;
-        const response = await axios.get(url);
-        if (response) {
-          setResults(response.data.items);
-          setInfo(response.data.searchInformation);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    } else {
-      setLoading(false);
-    }
-  }, [term]);
+  EventEmitter.listen('search-result', (response) => {
+    setResults(response.items);
+    setInfo(response.searchInformation);
+  });
+
+  const cachedSearch = localStorage.getItem('cached-search');
+  if (cachedSearch) {
+    searchCommands[0].callback(cachedSearch);
+    localStorage.removeItem('cached-search');
+  }
 
   return (
     <div className='CustomSearch'>
@@ -55,8 +33,6 @@ function CustomSearch() {
 
       <p>Transcript: {transcript}</p>
       <FunctionList commands={commands} />
-
-      {loading ? <h3>Buscando {term}...</h3> : ''}
 
       {results.length > 0 ? (
         <div className='search'>
