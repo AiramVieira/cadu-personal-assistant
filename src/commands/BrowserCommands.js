@@ -1,14 +1,13 @@
 export const browserCommands = [
   {
-    command: ['Nova guia', 'Nova aba'],
-    callback: () => {
-      window.open('https://google.com', '_blank');
-    },
-  },
-  {
-    command: [`${'Abrir' || 'abrir'} *`],
+    command: ['Abrir *'],
     callback: (page) => {
-      window.open("http://" + page.split(" ").join(""), '_blank');
+      const p = page.toLowerCase();
+      if (p == 'nova guia' || p == 'nova aba') {
+        window.open('https://google.com', '_blank');
+      } else {
+        window.open('http://' + p.split(' ').join(''), '_blank');
+      }
     },
   },
 ];
