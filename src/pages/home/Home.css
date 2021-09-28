@@ -1,4 +1,8 @@
 .Home {
-  display: flex;
+  /* display: flex; */
   height: 100vh;
+}
+
+ul {
+  padding-left: 0 !important;
 }

@@ -14,9 +14,11 @@ function FunctionList(props) {
           <CardBody>
             {commands.map((c, index) => {
               return (
-                <ul className='list'>
+                <ul key={index} className='list' >
                   <div className='list__index'>{index + 1}</div>
-                  <li className='list__item' key={c.command.join('-')}>{c.command.join(' ou ')}</li>
+                  <li key={index} className='list__item'>
+                    {c.command.join(' ou ')}
+                  </li>
                 </ul>
               );
             })}
@@ -24,7 +26,7 @@ function FunctionList(props) {
         </Card>
       </UncontrolledCollapse>
     </div>
-  )
+  );
 }
 
 export default FunctionList;

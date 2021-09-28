@@ -1,3 +1,3 @@
 body {
-  background: linear-gradient(90deg, rgba(36, 32, 111, 0.9) 0%, rgba(65, 64, 111, 1) 50%);
+  overflow: hidden;
 }
