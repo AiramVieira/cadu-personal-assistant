@@ -1,8 +1,8 @@
 import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { timeCommands } from '../../commands/TimeCommands';
-import { basicCommands } from '../../commands/BasicCommands';
-import { usefullCommands } from '../../commands/UsefullCommands';
+import { transcriptCommands } from '../../commands/TranscriptCommands';
+import { browserCommands } from '../../commands/BrowserCommands';
 import { routingCommands } from '../../commands/RoutingCommands';
 import './Assistant.css';
 import FunctionList from '../../components/function-list/FunctionList';
@@ -12,21 +12,21 @@ function Assistant() {
 
   const commands = [];
   commands.push(...timeCommands);
-  commands.push(...basicCommands);
+  commands.push(...transcriptCommands);
   commands.push(...routingCommands);
-  commands.push(...usefullCommands);
+  commands.push(...browserCommands);
 
   const { transcript } = useSpeechRecognition({ commands });
 
   return (
-    <div className='Assistant'>
+    <div className='Assistant' id='assistant'>
       <h1>Oi eu sou Cadu!</h1>
 
       <p>Fala com o pai, que eu te respondo</p>
 
-      <p id='transcript'>Transcript: {transcript}</p>
+      <p>Transcript: {transcript}</p>
 
-      <FunctionList commands={commands}/>
+      <FunctionList commands={commands} />
     </div>
   );
 }

@@ -14,7 +14,6 @@ export const searchCommands = [
       } catch (error) {
         console.log(error);
       }
-      // window.open(url, '_blank');
     },
   },
 ];

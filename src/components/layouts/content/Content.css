@@ -2,4 +2,12 @@
   display: flex;
   flex-grow: 1;
   background-color: #ddd;
+  height: var(--content-height);
+  overflow: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .opened-sidebar {
+    padding-left: 250px;
+  }
 }

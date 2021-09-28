@@ -1,4 +1,4 @@
-export const usefullCommands = [
+export const browserCommands = [
   {
     command: ['Nova guia', 'Nova aba'],
     callback: () => {
@@ -8,8 +8,7 @@ export const usefullCommands = [
   {
     command: [`${'Abrir' || 'abrir'} *`],
     callback: (page) => {
-      const p = page.toLowerCase().replace(/\s/, '');
-      window.open(`https://www.${p}.com`, '_blank');
+      window.open("http://" + page.split(" ").join(""), '_blank');
     },
   },
 ];

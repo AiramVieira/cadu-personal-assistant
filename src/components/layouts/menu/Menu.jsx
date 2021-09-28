@@ -3,13 +3,17 @@ import './Menu.css';
 import { Link } from 'react-router-dom';
 import { MenuData } from './MenuData';
 import * as FaIcons from 'react-icons/fa';
+import { EventEmitter } from '../../../utils/EventEmitter';
 
 function Menu() {
   const baseClassName = 'nav__text nav__list';
   const activeClassName = baseClassName + ' selected-route';
 
   const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const showSidebar = () => {
+    EventEmitter.emit('opened-sidebar', !sidebar);
+    setSidebar(!sidebar);
+  };
 
   const checkActiveUrl = () => {
     const path = window.location.pathname;
@@ -43,7 +47,7 @@ function Menu() {
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
       </div>
-      <nav className={sidebar ? 'nav__menu active' : 'nav__menu'}>
+      <nav className={sidebar ? 'nav__menu active' : 'nav__menu'} id='sidebar'>
         <ul className='nav__menu__items'>
           {MenuData.map((item, index) => {
             return (
@@ -58,19 +62,6 @@ function Menu() {
         </ul>
       </nav>
     </>
-    // <aside className='Menu'>
-    //   <nav>
-    //     <ul>
-    //       {MenuData.map((item, index) => {
-    //         return (
-    //           <li key={index} className={item.cName}>
-    //             <Link to={item.path}>{item.title}</Link>
-    //           </li>
-    //         );
-    //       })}
-    //     </ul>
-    //   </nav>
-    // </aside>
   );
 }
 

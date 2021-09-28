@@ -1,39 +1,40 @@
 .navbar {
   background-color: rgb(50, 50, 50);
-  height: 80px;
+  height: 60px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .nav__menu__bars {
-  margin-left: 2rem;
+  margin-left: 1rem;
   font-size: 2rem;
   background: none;
+  display: flex;
 }
 
 .nav__menu {
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(65, 65, 65);
   width: 250px;
-  height: calc(100vh - 80px);
-  margin-top: 80px;
+  height: var(--content-height);
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
   left: -100%;
   transition: 850ms;
-  z-index: 1;
+    z-index: 1;
 }
 
 .nav__menu.active {
   left: 0;
-  transition: 350ms;
+  transition: 250ms;
 }
 
 .nav__menu__items {
   width: 100%;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .nav__li {
@@ -42,7 +43,7 @@
 
 .nav__text {
   text-decoration: none;
-  justify-content: start;
+  justify-content: flex-start;
   color: #fafafa;
   font-size: 18px;
   width: 100%;
@@ -56,16 +57,15 @@
 }
 
 .nav__text:hover {
-  background-color: #1a83ff;
+  background-color: #1a83ff95;
   color: #fff;
 }
 
 .nav__toggle {
-  /* background-color: #060b26; */
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -74,5 +74,5 @@ span {
 }
 
 .selected-route {
-  background: #1a85ff95;
+  background: #1a85ff;
 }
