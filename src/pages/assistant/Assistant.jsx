@@ -11,6 +11,8 @@ function Assistant() {
 
   const { transcript } = useSpeechRecognition({ commands });
 
+  console.log(process.env);
+
   return (
     <div className='Assistant' id='assistant'>
       <h1>Oi eu sou Cadu!</h1>
