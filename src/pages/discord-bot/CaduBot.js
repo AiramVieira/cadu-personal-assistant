@@ -8,7 +8,7 @@ const client = new Discord.Client({
 });
 const settings = {
   prefix: '!',
-  token: 'ODkyNTIwNzYxODA4NTQ3ODgw.YVOGuw.YjSO22dR4Wv0ufcFaFjvPuQ0Yl8',
+  token: process.env.REACT_APP_DISCORD_KEY,
 };
 
 const { Player } = require('discord-music-player');
