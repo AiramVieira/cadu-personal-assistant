@@ -1,7 +1,7 @@
 import React from 'react';
 import './Content.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import CustomSearch from '../../../pages/customSearch/CustomSearch';
+import CustomSearch from '../../../pages/custom-search/CustomSearch';
 import Assistant from '../../../pages/assistant/Assistant';
 import NotFound from '../../../pages/not-found/NotFound';
 import { EventEmitter } from '../../../utils/EventEmitter';

@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@discordjs/voice": "^0.6.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "artyom.js": "^1.0.6",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
+    "discord-music-player": "^8.1.0",
+    "discord.js": "^13.1.0",
+    "ffmpeg": "^0.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -16,7 +20,8 @@
     "react-scripts": "4.0.3",
     "react-speech-recognition": "^3.9.0",
     "reactstrap": "^8.10.0",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "ytdl-core": "^4.9.1"
   },
   "scripts": {
     "start": "react-scripts start",
