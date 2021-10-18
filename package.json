@@ -14,6 +14,7 @@
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
     "ffmpeg": "^0.0.4",
+    "heroku": "^7.59.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -28,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run discord-build",
+    "discord-build": "node .src/pages/discord-bot/CaduBot.js"
   },
   "eslintConfig": {
     "extends": [
