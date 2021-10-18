@@ -14,22 +14,20 @@
 }
 
 .nav__menu {
-  top: 0;
+  top: 60px;
   z-index: 1;
   width: 70px;
   position: fixed;
-  margin-top: 60px;
   overflow-x: hidden;
   transition: width 0.5s;
   justify-content: center;
   height: var(--content-height);
-  border-right: 6px solid #1a85ff;
+  border-right: 4px solid #1a85ff;
   background-color: rgb(65, 65, 65);
 }
 
 .nav__menu.active {
   width: 250px;
-  transition: 250ms;
 }
 
 .nav__menu .nav__li span {

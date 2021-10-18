@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState }from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { searchCommands } from '../../commands/SearchCommands';
 import './CustomSearch.css';
