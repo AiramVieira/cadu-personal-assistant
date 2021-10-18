@@ -1,20 +1,20 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { searchCommands } from '../../commands/SearchCommands';
 import './CustomSearch.css';
 import FunctionList from '../../components/function-list/FunctionList';
 import { EventEmitter } from '../../utils/EventEmitter';
 import allCommands from '../../commands/AllCommands';
+import ContentHeader from '../../components/content-header/ContentHeader';
 
 function CustomSearch() {
   SpeechRecognition.startListening({ language: 'pt-pt', continuous: true });
 
   const commands = [...allCommands];
+  useSpeechRecognition({ commands });
 
   const [info, setInfo] = useState([]);
   const [results, setResults] = useState([]);
-
-  const { transcript } = useSpeechRecognition({ commands });
 
   EventEmitter.listen('search-result', (response) => {
     setResults(response.items);
@@ -29,9 +29,7 @@ function CustomSearch() {
 
   return (
     <div className='CustomSearch'>
-      <h1 className='mb-3'>Cadu pesquisador, fala que o pai busca!</h1>
-
-      <p>Transcript: {transcript}</p>
+      <ContentHeader title='Cadu pesquisador!' subtitle='Fala que o pai busca'/>
       <FunctionList commands={commands} />
 
       {results.length > 0 ? (

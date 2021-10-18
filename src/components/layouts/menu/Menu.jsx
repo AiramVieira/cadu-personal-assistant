@@ -15,6 +15,22 @@ function Menu() {
     setSidebar(!sidebar);
   };
 
+  const setBackground = () => {
+    window.onload = () => {
+      let list = document.querySelectorAll('.nav__list');
+      for (let i = 0; i < list.length; i++) {
+        list[i].onclick = () => {
+          let j = 0;
+          while (j < list.length) {
+            list[j++].className = baseClassName;
+          }
+          list[i].className = activeClassName;
+        };
+      }
+    };
+  };
+  setBackground();
+
   const checkActiveUrl = () => {
     const path = window.location.pathname;
 
@@ -25,20 +41,6 @@ function Menu() {
     }
   };
   checkActiveUrl();
-
-  const setBackground = () => {
-    let list = document.querySelectorAll('.nav__list');
-    for (let i = 0; i < list.length; i++) {
-      list[i].onclick = () => {
-        let j = 0;
-        while (j < list.length) {
-          list[j++].className = baseClassName;
-        }
-        list[i].className = activeClassName;
-      };
-    }
-  };
-  setBackground();
 
   return (
     <>

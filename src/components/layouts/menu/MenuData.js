@@ -13,4 +13,10 @@ export const MenuData = [
     icon: <AiIcons.AiOutlineSearch />,
     cName: 'nav__text nav__list',
   },
+  {
+    title: 'Chat',
+    path: '/chat',
+    icon: <AiIcons.AiOutlineWechat />,
+    cName: 'nav__text nav__list',
+  },
 ];

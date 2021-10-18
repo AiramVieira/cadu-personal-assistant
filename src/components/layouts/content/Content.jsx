@@ -5,6 +5,7 @@ import CustomSearch from '../../../pages/custom-search/CustomSearch';
 import Assistant from '../../../pages/assistant/Assistant';
 import NotFound from '../../../pages/not-found/NotFound';
 import { EventEmitter } from '../../../utils/EventEmitter';
+import ChatSystem from '../../../pages/chat-system/ChatSystem';
 
 function Content() {
   const baseClassName = 'Content';
@@ -30,6 +31,9 @@ function Content() {
         </Route>
         <Route path='/busca'>
           <CustomSearch />
+        </Route>
+        <Route path='/chat'>
+          <ChatSystem />
         </Route>
         <Route path='*'>
           <NotFound />
