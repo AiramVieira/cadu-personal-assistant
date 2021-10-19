@@ -6,5 +6,5 @@ export const environment = {
   production: false,
   googleCx: 'f7ee111d835d587e1',
   googleKey: 'AIzaSyApFiTzkKXDQHcvtzKYOCa1-fiuGjlIx7E',
-  discordKey: 'ODkyNTIwNzYxODA4NTQ3ODgw.YVOGuw._213tZowXoMULpQ-44TBbUuDdy8',
+  discordKey: 'ODkyNTIwNzYxODA4NTQ3ODgw.YVOGuw.OgJsOa2Q5px20e9eXDsPtLbO4iM',
 };
