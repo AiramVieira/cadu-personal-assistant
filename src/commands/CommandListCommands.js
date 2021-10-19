@@ -14,7 +14,7 @@ export const commandListCommands = [
 
         for (let i = 0; i < list.length; i++) {
           text = list[i].command.join(' ou ');
-          text = text.replaceAll('*', '\"palavra chave\"');
+          text = text.replaceAll('*', '"palavra chave"');
           SpeakMessage(text);
         }
       };

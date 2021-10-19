@@ -1,9 +1,10 @@
 // import { key, cx } from '../environments';
 import axios from 'axios';
 import { EventEmitter } from '../utils/EventEmitter';
+import { environment } from '../environments/environments';
 
-const cx = process.env.REACT_APP_GOOGLE_CX;
-const key = process.env.REACT_APP_GOOGLE_KEY;
+const cx = environment.googleCx;
+const key = environment.googleKey;
 
 export const searchCommands = [
   {
