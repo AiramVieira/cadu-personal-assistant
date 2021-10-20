@@ -1,3 +1,5 @@
+const env = require('dotenv').config().parsed;
+
 const Discord = require('discord.js');
 const client = new Discord.Client({
   intents: [
@@ -8,8 +10,10 @@ const client = new Discord.Client({
 });
 const settings = {
   prefix: '!',
-  token: process.env.REACT_APP_DISCORD_KEY,
+  token: env.REACT_APP_DISCORD_KEY,
 };
+
+console.log(env.REACT_APP_DISCORD_KEY);
 
 const { Player } = require('discord-music-player');
 const player = new Player(client, {

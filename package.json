@@ -14,6 +14,7 @@
     "discord-music-player": "^8.1.0",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "ffmpeg": "^0.0.4",
     "heroku": "^7.59.0",
     "react": "^17.0.2",
@@ -27,12 +28,12 @@
     "ytdl-core": "^4.9.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start && node server.js && npm run discord-build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run discord-build",
-    "discord-build": "node .src/pages/discord-bot/CaduBot.js"
+    "discord-build": "node src/pages/discord-bot/CaduBot.js"
   },
   "eslintConfig": {
     "extends": [
