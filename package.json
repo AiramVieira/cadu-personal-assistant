@@ -30,7 +30,6 @@
   },
   "scripts": {
     "start": "react-scripts start && node server.js && npm run discord-build",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run discord-build",
