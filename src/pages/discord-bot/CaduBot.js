@@ -1,6 +1,6 @@
-const env = require('dotenv').config().parsed;
-
 const Discord = require('discord.js');
+const axios = require('axios');
+
 const client = new Discord.Client({
   intents: [
     Discord.Intents.FLAGS.GUILDS,
@@ -8,55 +8,61 @@ const client = new Discord.Client({
     Discord.Intents.FLAGS.GUILD_VOICE_STATES,
   ],
 });
-const settings = {
-  prefix: '!',
-  token: env.REACT_APP_DISCORD_KEY,
-};
 
-console.log(env.REACT_APP_DISCORD_KEY);
+(async () => {
+  const url = `https://cadu-service-api.herokuapp.com`;
+  const response = await axios.get(url);
 
-const { Player } = require('discord-music-player');
-const player = new Player(client, {
-  leaveOnEmpty: false,
-});
-client.player = player;
+  console.log(response.data.key);
 
-client.on('ready', () => {
-  console.log('I am ready to Play songs');
-});
+  const settings = {
+    prefix: '!',
+    token: response.data.key,
+  };
 
-client.login(settings.token);
+  const { Player } = require('discord-music-player');
+  const player = new Player(client, {
+    leaveOnEmpty: false,
+  });
+  client.player = player;
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+  client.on('ready', () => {
+    console.log('I am ready to Play songs');
+  });
 
-client.on('messageCreate', async (message) => {
-  const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
-  const command = args.shift();
-  let guildQueue = client.player.getQueue(message.guild.id);
+  client.login(settings.token);
 
-  if (command === 'play') {
-    let queue = client.player.createQueue(message.guild.id);
-    await queue.join(message.member.voice.channel);
-    let song = await queue.play(args.join(' ')).catch((_) => {
-      if (!guildQueue) queue.stop();
-    });
-  }
+  client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+  });
 
-  if (command === 'skip') {
-    guildQueue.skip();
-  }
+  client.on('messageCreate', async (message) => {
+    const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+    const command = args.shift();
+    let guildQueue = client.player.getQueue(message.guild.id);
 
-  if (command === 'stop') {
-    guildQueue.stop();
-  }
+    if (command === 'play') {
+      let queue = client.player.createQueue(message.guild.id);
+      await queue.join(message.member.voice.channel);
+      let song = await queue.play(args.join(' ')).catch((_) => {
+        if (!guildQueue) queue.stop();
+      });
+    }
 
-  if (command === 'pause') {
-    guildQueue.setPaused(true);
-  }
+    if (command === 'skip') {
+      guildQueue.skip();
+    }
 
-  if (command === 'resume') {
-    guildQueue.setPaused(false);
-  }
-});
+    if (command === 'stop') {
+      guildQueue.stop();
+    }
+
+    if (command === 'pause') {
+      guildQueue.setPaused(true);
+    }
+
+    if (command === 'resume') {
+      guildQueue.setPaused(false);
+    }
+  });
+})();
