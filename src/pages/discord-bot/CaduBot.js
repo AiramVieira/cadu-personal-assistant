@@ -36,11 +36,13 @@ const client = new Discord.Client({
   });
 
   client.on('message', async (message) => {
+    console.log('message');
     const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
     const command = args.shift();
     let guildQueue = client.player.getQueue(message.guild.id);
 
     if (command === 'play') {
+      console.log('play');
       let queue = client.player.createQueue(message.guild.id);
       await queue.join(message.member.voice.channel);
       let song = await queue.play(args.join(' ')).catch((_) => {
@@ -49,18 +51,22 @@ const client = new Discord.Client({
     }
 
     if (command === 'skip') {
+      console.log('skip');
       guildQueue.skip();
     }
 
     if (command === 'stop') {
+      console.log('stop');
       guildQueue.stop();
     }
 
     if (command === 'pause') {
+      console.log('pause');
       guildQueue.setPaused(true);
     }
 
     if (command === 'resume') {
+      console.log('resume');
       guildQueue.setPaused(false);
     }
     return;
