@@ -62,4 +62,6 @@ const client = new Discord.Client({
       guildQueue.setPaused(false);
     }
   });
+
+  return;
 })();
