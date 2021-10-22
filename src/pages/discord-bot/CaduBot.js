@@ -31,9 +31,11 @@ const client = new Discord.Client({
   client.on('ready', () => {
     console.log('I am ready to Play songs');
     console.log(`Logged in as ${client.user.tag}!`);
+
+    return;
   });
 
-  client.on('messageCreate', async (message) => {
+  client.on('message', async (message) => {
     const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
     const command = args.shift();
     let guildQueue = client.player.getQueue(message.guild.id);
@@ -61,7 +63,6 @@ const client = new Discord.Client({
     if (command === 'resume') {
       guildQueue.setPaused(false);
     }
+    return;
   });
-
-  return;
 })();
