@@ -33,7 +33,7 @@
     "start": "react-scripts start && node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run discord-build",
+    "build": "npm run discord-build",
     "discord-build": "node src/pages/discord-bot/CaduBot.js"
   },
   "eslintConfig": {

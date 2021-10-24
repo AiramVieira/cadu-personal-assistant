@@ -12,10 +12,6 @@ const client = new Discord.Client({
   ],
 });
 
-// (async () => {
-// const url = `https://cadu-service-api.herokuapp.com`;
-// const response = await axios.get(url);
-
 const settings = {
   prefix: '!',
   token: process.env.REACT_APP_DISCORD_KEY,
@@ -34,13 +30,11 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
-  // console.log('message');
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift();
   let guildQueue = client.player.getQueue(message.guild.id);
 
   if (command === 'play') {
-    // console.log('play');
 
     console.log('play');
 
@@ -95,7 +89,4 @@ client.on('messageCreate', async (message) => {
     console.log('resume');
     guildQueue.setPaused(false);
   }
-
-  // console.log('end of function');
 });
-// })();
