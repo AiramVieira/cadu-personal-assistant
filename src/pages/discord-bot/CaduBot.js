@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const search = require('yt-search');
-const axios = require('axios');
 require('dotenv').config();
 const { Player } = require('discord-music-player');
 
@@ -62,7 +61,7 @@ client.on('messageCreate', async (message) => {
           await queue.join(message.member.voice.channel);
 
           console.log(videos[m.content].url);
-          let song = await queue.play(videos[m.content].url).catch((_) => {
+          let song = await queue.play(videos[index+1].url).catch((_) => {
             if (!guildQueue) queue.stop();
           });
         }
