@@ -21,7 +21,7 @@ const player = new Player(client, {
 });
 client.player = player;
 
-client.login(settings.token);
+// client.login(settings.token);
 
 // client.on('ready', () => {
 //   console.log('I am ready to Play songs');
