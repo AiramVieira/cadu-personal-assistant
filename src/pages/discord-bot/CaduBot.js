@@ -23,72 +23,72 @@ client.player = player;
 
 client.login(settings.token);
 
-client.on('ready', () => {
-  console.log('I am ready to Play songs');
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+// client.on('ready', () => {
+//   console.log('I am ready to Play songs');
+//   console.log(`Logged in as ${client.user.tag}!`);
+// });
 
-client.on('messageCreate', (message) => {
-  const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
-  const command = args.shift();
-  let guildQueue = client.player.getQueue(message.guild.id);
+// client.on('messageCreate', (message) => {
+//   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+//   const command = args.shift();
+//   let guildQueue = client.player.getQueue(message.guild.id);
 
-  if (command === 'play') {
-    const play = async (url) => {
-      let queue = client.player.createQueue(message.guild.id);
-      await queue.join(message.member.voice.channel);
+//   if (command === 'play') {
+//     const play = async (url) => {
+//       let queue = client.player.createQueue(message.guild.id);
+//       await queue.join(message.member.voice.channel);
 
-      let song = await queue.play(url).catch((_) => {
-        if (!guildQueue) {
-          queue.stop();
-          guildQueue.stop();
-        }
-      });
-    };
+//       let song = await queue.play(url).catch((_) => {
+//         if (!guildQueue) {
+//           queue.stop();
+//           guildQueue.stop();
+//         }
+//       });
+//     };
 
-    if (args.join(' ').startsWith('https://')) {
-      play(args.join(' '));
-    } else {
-      search(args.join(' '), (err, res) => {
-        if (err) return message.channel.send('Deu ruim, não achei as músicas');
+//     if (args.join(' ').startsWith('https://')) {
+//       play(args.join(' '));
+//     } else {
+//       search(args.join(' '), (err, res) => {
+//         if (err) return message.channel.send('Deu ruim, não achei as músicas');
 
-        let videos = res.videos.slice(0, 5);
+//         let videos = res.videos.slice(0, 5);
 
-        let resp = '';
-        for (let i = 0; i < videos.length; i++) {
-          resp += `**[${parseInt(i) + 1}]:** \`${videos[i].title}\`\n`;
-        }
+//         let resp = '';
+//         for (let i = 0; i < videos.length; i++) {
+//           resp += `**[${parseInt(i) + 1}]:** \`${videos[i].title}\`\n`;
+//         }
 
-        resp += `\n**Choose a number between \`1-${videos.length}\``;
+//         resp += `\n**Choose a number between \`1-${videos.length}\``;
 
-        message.channel.send(resp);
+//         message.channel.send(resp);
 
-        const filter = (m) => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
-        const collector = message.channel.createMessageCollector(filter);
+//         const filter = (m) => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
+//         const collector = message.channel.createMessageCollector(filter);
 
-        collector.on('collect', async function (m) {
-          const index = parseInt(m.content);
-          if (!isNaN(index)) {
-            play(videos[index - 1].url);
-          }
-        });
-      });
-    }
-  }
+//         collector.on('collect', async function (m) {
+//           const index = parseInt(m.content);
+//           if (!isNaN(index)) {
+//             play(videos[index - 1].url);
+//           }
+//         });
+//       });
+//     }
+//   }
 
-  if (command === 'skip') {
-    guildQueue.skip();
-  }
+//   if (command === 'skip') {
+//     guildQueue.skip();
+//   }
 
-  if (command === 'stop') {
-    guildQueue.stop();
-  }
+//   if (command === 'stop') {
+//     guildQueue.stop();
+//   }
 
-  if (command === 'pause') {
-    guildQueue.setPaused(true);
-  }
+//   if (command === 'pause') {
+//     guildQueue.setPaused(true);
+//   }
 
-  if (command === 'resume') {
-    guildQueue.setPaused(false);
-  }
-});
+//   if (command === 'resume') {
+//     guildQueue.setPaused(false);
+//   }
+// });
