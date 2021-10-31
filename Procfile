@@ -1,1 +1,1 @@
-web:node src\pages\discord-bot\CaduBot.js
+web:node src/pages/discord-bot/CaduBot.js
