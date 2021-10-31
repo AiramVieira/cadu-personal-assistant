@@ -1,1 +1,1 @@
-web:node server.js
+web:node server.js && node src/pages/discord-bot/CaduBot.js
