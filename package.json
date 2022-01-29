@@ -26,7 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "config": "node ./config-env.js",
-    "heroku-postbuild": "ng build --prod && npm run config"
+    "heroku-postbuild": "npm run build --prod && npm run config"
   },
   "eslintConfig": {
     "extends": [
