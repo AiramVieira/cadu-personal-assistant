@@ -1,0 +1,12 @@
+.Home {
+  /* display: flex; */
+  height: 100vh;
+}
+
+ul {
+  padding-left: 0 !important;
+}
+
+:root {
+  --content-height: calc(100vh - 60px);
+}

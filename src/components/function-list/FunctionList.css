@@ -1,0 +1,41 @@
+.FunctionList .list:last-child {
+  margin-bottom: 0 !important;
+}
+
+.FunctionList .list__item {
+  display: flex;
+}
+
+.FunctionList ul {
+  display: flex;
+  position: relative;
+  padding: 0;
+}
+
+.FunctionList ul li {
+  border: 1px solid #ccc;
+  padding: 0 25px;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.FunctionList ul .list__index {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  top: -2px;
+  left: -2px;
+  position: absolute;
+  background: linear-gradient(90deg, rgba(30, 144, 255, 1) 0%, rgba(63, 160, 255, 1) 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.FunctionList .card {
+  max-width: 500px;
+}

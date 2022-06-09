@@ -1,0 +1,14 @@
+.Content {
+  display: flex;
+  flex-grow: 1;
+  background-color: #ddd;
+  height: var(--content-height);
+  overflow: auto;
+  padding-left: 60px; 
+}
+
+@media screen and (min-width: 600px) {
+  .opened-sidebar {
+    padding-left: 250px;
+  }
+}
