@@ -4,7 +4,7 @@ import { EventEmitter } from "../../../utils/EventEmitter";
 import Assistant from "../../../pages/assistant/Assistant";
 import CustomSearch from "../../../pages/customSearch/CustomSearch";
 import NotFound from "../../../pages/not-found/NotFound";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function Content() {
   const baseClassName = "Content";
@@ -22,6 +22,7 @@ function Content() {
   return (
     <main className={baseClassName} id="content">
       <Routes>
+        <Route path="/" element={<Navigate to="/inicio" />} />
         <Route path="inicio" element={<Assistant />} />
         <Route path="busca" element={<CustomSearch />} />
         <Route path="*" element={<NotFound />} />

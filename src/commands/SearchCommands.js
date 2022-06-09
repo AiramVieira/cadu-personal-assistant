@@ -1,10 +1,9 @@
-// import { key, cx } from '../environments';
 import axios from 'axios';
 import { EventEmitter } from '../utils/EventEmitter';
-// import { environment } from '../environments/environments';
+// import {environment as env} from '../environments/environments'
 
-// const cx = environment.googleCx;
-// const key = environment.googleKey;
+// const cx = env.googleCx;
+// const key = env.googleKey;
 
 export const searchCommands = [
   {
